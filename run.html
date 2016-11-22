@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/hitPix.js"></script>
+    <style>
+     canvas{
+         background: #ccc;
+     }
+    </style>
+    <script>
+        window.onload=function(){
+            var canvas=document.getElementsByTagName("canvas")[0];
+            var cobj=canvas.getContext("2d");
+            function obj(){
+                this.x=0;
+                this.y=0;
+                this.width=96;
+                this.height=96;
+                this.speed=2;
+            }
+            obj.prototype={
+                draw:function(){
+                    cobj.save();
+                    cobj.translate(this.x,this.y);
+                    //cobj.strokeRect(0,0,100,100);
+                    cobj.beginPath();
+                    cobj.moveTo(20+25,20);
+                    cobj.quadraticCurveTo(40+30,100,100,0);
+                    cobj.closePath();
+                    cobj.fill();
+                    cobj.restore();
+                },
+                update:function(){
+                    this.x+=this.speed;
+                }
+            }
+
+
+
+            var obj1=new obj();
+
+            var obj2=new obj();
+            obj2.x=500;
+            obj2.speed=-2;
+
+
+            setInterval(function(){
+                cobj.clearRect(0,0,600,600);
+
+                obj1.update();
+                obj1.draw();
+                obj2.update();
+                obj2.draw();
+                if(hitPix(canvas,cobj,obj1,obj2)){
+                    console.log(1);
+                }
+
+
+            },30)
+
+
+        }
+
+
+    </script>
+
+</head>
+<body>
+   <canvas width="600" height="600">
+
+   </canvas>
+</body>
+</html>
