@@ -1,0 +1,73 @@
+html,body {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+    padding: 0;margin: 0;
+}
+canvas{
+    background:#000  url(../imgs/back/back.jpg) repeat-x ;
+}
+img{
+    width:83px;position: absolute;
+    left:100px;top:100px;
+}
+img:not(:first-of-type){
+    display: none;
+}
+.start{
+    width:30%;
+    height:40%;
+    position: fixed;
+    left:0;top:0;right:0;bottom: 0;
+    margin:auto;
+    border:3px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    z-index:1;
+    animation: start 2s ease forwards;
+}
+.mask{
+    width:100%;height:100%;
+    position: fixed;
+    left:0;top:0;
+    background: rgba(0,0,0,.5);
+    animation: mask 2s ease forwards;
+}
+.welcome{
+    line-height: 100px;font-size:30px;color:#fff;
+
+}
+
+@keyframes  start{
+    0%{
+        transform: translate(0,-1000px);
+    }
+    100%{
+        transform: translate(0,0px);
+    }
+}
+@keyframes  start1{
+    0%{
+        transform: translate(0,0px);
+    }
+    100%{
+        transform: translate(0,-1000px);
+    }
+}
+@keyframes  mask{
+    0%{
+        background: rgba(0,0,0,0.2);
+    }
+    100%{
+        background: rgba(0,0,0,0.6);
+    }
+}
+@keyframes  mask1{
+    0%{
+        background: rgba(0,0,0,0.6);
+    }
+    100%{
+        background: rgba(0,0,0,0);
+    }
+}
