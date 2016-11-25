@@ -21,8 +21,6 @@ person.prototype = {
         this.cobj.restore();
     }
 }
-
-
 function lizi(cobj){
     this.cobj=cobj;
     this.x=200;
@@ -196,7 +194,6 @@ game.prototype = {
                         that.person.life--;
                         console.log(that.person.life);
                         if(that.person.life<0){
-
                             alert("game over!");
                             location.reload();
                         }
@@ -204,6 +201,7 @@ game.prototype = {
                     }
 
                 }
+
 
                 if(that.person.x>that.hinderArr[i].x+that.hinderArr[i].width){
                     if(!that.hinderArr[i].flag&&!that.hinderArr[i].flag1){
